@@ -67,7 +67,7 @@ public class Cart extends BasePage {
 	private static WebElement emailcartBtn;
 
 	public String addProductToCartByIndex(int index) {
-		WebElement element = productDrop.findElements(By.tagName("li")).get(index - 1)
+		WebElement element = productDrop.findElements(By.cssSelector("li")).get(index - 1)
 				.findElement(By.xpath("/div[2]/a/div[2]/span"));
 		String productTitle = element.getText();
 		element.click();

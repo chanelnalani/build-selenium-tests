@@ -1,8 +1,12 @@
 package com.build.qa.build.selenium.tests;
 
 
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.Assert;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 import com.build.qa.build.selenium.framework.BaseFramework;
 import com.build.qa.build.selenium.pageobjects.homepage.HomePage;
@@ -10,7 +14,20 @@ import com.build.qa.build.selenium.pageobjects.elements.*;
 
 
 public class BuildTest extends BaseFramework { 
+	WebDriver chromeDriver;
+	WebDriver firefoxDriver;
 	
+	@Before
+	public void setUp() {
+		firefoxDriver = driver;
+		System.setProperty("webdriver.gecko.driver", "/Users/chanel.nalani/Documents/workspace/geckodriver");
+		firefoxDriver = new FirefoxDriver();
+	}
+	@After
+	public void tearDown() {
+		chromeDriver = driver;
+		firefoxDriver.quit();
+	}
  /** Cart cart;
   
 	/** 
@@ -41,7 +58,7 @@ public class BuildTest extends BaseFramework {
 	homePage.closeWelcomeDialog();
 	homePage.search("Quoizel MY1613");
 
-	Assert.assertEquals("Quoizel MY1613", homePage.getProductTitle());
+	Assert.assertEquals("Quoizel MY1613ML", homePage.getProductTitle());
 
     }
 	
