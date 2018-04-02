@@ -7,20 +7,18 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Wait;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.openqa.selenium.support.ui.FluentWait;
 
 import com.build.qa.build.selenium.pageobjects.BasePage;
 import com.build.qa.build.selenium.pageobjects.elements.Color;
 import com.build.qa.build.selenium.pageobjects.elements.Filter;
 
 
-public class Cart {
+public class Cart extends BasePage {
 	private By buildThemeBody;
+	
 
 	public Cart(WebDriver driver, Wait<WebDriver> wait) {
-		WebDriverWait wait1 = new WebDriverWait(drv,30);
-		super(driver, wait1);
+		super(driver, wait);
 		buildThemeBody = By.cssSelector("body.build-theme");
 	}
 
